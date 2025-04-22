@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head><title>Search Results</title></head>
+<body>
+  <h2>Results for: "{{ query }}"</h2>
+  <ul>
+    {% for r in results %}
+      <li>
+        <a href="{{ r.url }}" target="_blank">{{ r.name }}</a><br>
+        <p>{{ r.snippet }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+  <a href="http://cs.txstate.edu/~YourNetID/">Back to search</a>
+</body>
+</html>
