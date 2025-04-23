@@ -18,16 +18,16 @@ if not os.path.exists("search_index"):
 ix = create_in("search_index", schema)
 writer = ix.writer()
 
-with open("lyrics.csv", encoding="utf-8") as f:
+with open("lyrics.csv", encoding="latin1") as f:
     reader = csv.DictReader(f)
     for i, row in enumerate(reader):
         writer.add_document(
             id=str(i),
-            title=row['title'],
-            artist=row['artist'],
-            year=row['year'],
-            rank=row['rank'],
-            lyrics=row['lyrics']
+            title=row['Song'],
+            artist=row['Artist'],
+            year=str(row['Year']),
+            rank=str(row['Rank']),
+            lyrics=row['Lyrics']
         )
 
 writer.commit()
