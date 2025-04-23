@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head><title>Search Results</title></head>
+<body>
+  <h2>Search Results for "{{ query }}"</h2>
+  {% if results %}
+    <ul>
+      {% for r in results %}
+        <li>
+          <strong><a href="{{ url_for('lyrics', doc_id=r.id) }}">{{ r.title }}</a></strong> by {{ r.artist }} ({{ r.year }}) — Rank: {{ r.rank }}<br>
+          <em>{{ r.snippet|safe }}</em>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No results found.</p>
+  {% endif %}
+</body>
+</html>
+
